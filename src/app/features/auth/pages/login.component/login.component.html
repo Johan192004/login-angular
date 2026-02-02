@@ -1,0 +1,23 @@
+<div class="login-card">
+    <h2>Bienvenido</h2>
+
+    @if (errorMessage()) {
+    <div class="alert-error">{{ errorMessage() }}</div>
+    }
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" formControlName="email">
+        </div>
+
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" formControlName="password">
+        </div>
+
+        <button type="submit" [disabled]="loginForm.invalid">
+            Ingresar
+        </button>
+    </form>
+</div>
